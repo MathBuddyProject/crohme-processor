@@ -9,7 +9,7 @@ import cv2
 # Load / dump data
 import pickle
 
-data_dir = '../CROHME_extractor-master/data/CROHME_full_v2/'
+data_dir = './data/'
 version_choices = ['2011', '2012', '2013']
 
 ap = argparse.ArgumentParser()
@@ -23,7 +23,7 @@ training_inkmls = []
 testing_inkmls = []
 for year in args.get('dataset_version'):
     # Chose directory containing data based on dataset version selected
-    working_dir = os.path.join(data_dir, 'CROHME{}_data'.format(year))
+    working_dir = os.path.join(data_dir, year)
     # List folders found within working_dir
     for root, folders, files in os.walk(working_dir):
         inkml_files = [os.path.join(root, inmkl_file) for inmkl_file in files if inmkl_file.endswith('.inkml')]
